@@ -1,0 +1,91 @@
+<!-- <Tag>로 구조 설계 -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML 기본 구조</title>
+  </head>
+  <body>
+    <!--
+      header: 페이지 상단 소개 영역
+      h1~h6: 문서의 제목 계층을 표현
+    -->
+    <header>
+      <h1>HTML 기본 구조 연습</h1>
+      <p>시맨틱 태그(의미 있는 태그)와 자주 쓰는 요소를 익히기</p>
+    </header>
+
+    <!-- Non-semantic: div 떡칠되어 있고 id, class 확인해야 뭔지 알 수 있음 -->
+    <div id="header">사이트 제목</div>
+    <div id="nav">메뉴1, 메뉴2</div>
+    <div id="content">블로그 글 본문</div>
+
+    <!-- Semantic: 태그만 봐도 구조가 보임 -->
+    <!-- nav: 주요 이동 링크 -->
+    <nav>
+      <a href="#about">소개</a> |
+      <a href="#hobby">취미</a> |
+      <a href="#contact">연락</a>
+    </nav>
+
+    <!-- main: 문서의 핵심 내용 -->
+    <main>
+      <!-- section: 관련 콘텐츠를 묶는 영역 -->
+      <section id="about">
+        <h2>소개</h2>
+        <p>
+          안녕하세요. 저는 <strong>프론트엔드</strong>를 배우는 중입니다.
+          <em>HTML/CSS/JS</em>의 기초를 탄탄히 다지고 있어요.
+        </p>
+      </section>
+
+      <section id="hobby">
+        <h2>취미 목록</h2>
+        <!-- ul/li: 순서 없는 목록 -->
+        <ul>
+          <li>독서</li>
+          <li>운동</li>
+          <li>코딩</li>
+        </ul>
+
+        <!-- ol/li: 순서 있는 목록 -->
+        <h3>오늘의 학습 순서</h3>
+        <ol>
+          <li>HTML 태그 이해</li>
+          <li>CSS 선택자/박스모델 학습</li>
+          <li>JavaScript DOM 조작</li>
+        </ol>
+      </section>
+
+      <section id="contact">
+        <h2>간단한 입력 폼</h2>
+        <!--
+          form: 사용자 입력을 받는 영역
+          label의 for와 input의 id를 연결하면 접근성이 좋아짐
+        -->
+        <form>
+          <p>
+            <label for="name">이름:</label>
+            <input id="name" type="text" placeholder="이름을 입력하세요" />
+          </p>
+          <p>
+            <label for="message">메시지:</label>
+            <textarea
+              id="message"
+              rows="4"
+              cols="30"
+              placeholder="하고 싶은 말을 작성하세요"
+            ></textarea>
+          </p>
+          <button type="submit">전송</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- footer: 페이지 하단 정보 -->
+    <footer>
+      <small>2026 HTML 기초 실습</small>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 기본 문법</title>
+    <!-- 외부 CSS 파일 연결 -->
+    <link rel="stylesheet" href="./assets/style-basics.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>CSS 기초 연습</h1>
+      <p>선택자, 박스 모델, Flex를 직접 확인해보세요.</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2>박스 모델(Box Model)</h2>
+        <p>
+          이 카드에는 <strong>margin / border / padding</strong>이 적용되어 있습니다.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>버튼 상태 스타일</h2>
+        <button class="primary-btn">마우스를 올려보세요</button>
+      </section>
+
+      <section class="card">
+        <h2>Flex 정렬</h2>
+        <div class="flex-row">
+          <div class="chip">HTML</div>
+          <div class="chip">CSS</div>
+          <div class="chip">JavaScript</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
