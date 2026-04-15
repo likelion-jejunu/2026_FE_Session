@@ -8,6 +8,7 @@ const MENU = [
     price: "4,000원",
     resource: "bean, water",
     addedAt: "2024-06-01T10:00:00Z",
+    imgSrc: "../public/img/아메리카노.jpeg",
   },
   {
     part: "커피",
@@ -15,6 +16,7 @@ const MENU = [
     price: "4,500원",
     resource: "bean, milk",
     addedAt: "2024-06-02T11:00:00Z",
+    imgSrc: "../public/img/카페라떼.jpg",
   },
   {
     part: "커피",
@@ -22,6 +24,7 @@ const MENU = [
     price: "5,000원",
     resource: "bean, milk, vanilla",
     addedAt: "2024-06-03T12:00:00Z",
+    imgSrc: "../public/img/바닐라라떼.jpg",
   },
   {
     part: "스무디",
@@ -29,6 +32,7 @@ const MENU = [
     price: "5,000원",
     resource: "strawberry, milk",
     addedAt: "2024-06-04T13:00:00Z",
+    imgSrc: "../public/img/딸기스무디.jpg",
   },
   {
     part: "스무디",
@@ -36,6 +40,7 @@ const MENU = [
     price: "5,000원",
     resource: "mango, milk",
     addedAt: "2024-06-05T14:00:00Z",
+    imgSrc: "../public/img/망고스무디.jpg",
   },
   {
     part: "에이드",
@@ -43,6 +48,7 @@ const MENU = [
     price: "4,500원",
     resource: "lemon, water",
     addedAt: "2024-06-06T15:00:00Z",
+    imgSrc: "../public/img/레몬에이드.jpg",
   },
   {
     part: "에이드",
@@ -50,6 +56,7 @@ const MENU = [
     price: "4,500원",
     resource: "grapefruit, water",
     addedAt: "2024-06-07T16:00:00Z",
+    imgSrc: "../public/img/자몽에이드.jpeg",
   },
   {
     part: "디저트",
@@ -57,6 +64,7 @@ const MENU = [
     price: "3,500원",
     resource: "flour, butter",
     addedAt: "2024-06-07T17:00:00Z",
+    imgSrc: "../public/img/크루아상.jpg",
   },
   {
     part: "디저트",
@@ -64,6 +72,7 @@ const MENU = [
     price: "5,500원",
     resource: "cheese, flour",
     addedAt: "2024-06-07T18:00:00Z",
+    imgSrc: "../public/img/치즈케이크.png",
   },
   {
     part: "디저트",
@@ -71,6 +80,7 @@ const MENU = [
     price: "2,800원",
     resource: "flour, butter",
     addedAt: "2024-06-07T19:00:00Z",
+    imgSrc: "../public/img/휘낭시에.jpg",
   },
 ];
 
@@ -107,10 +117,7 @@ function CafeMenuPage() {
       <h2 className="title">카페 메뉴</h2>
 
       <MenuSection>
-        <CafeActionRow
-          setAddpage={setAddpage}
-          menuItems={MENU}
-        />
+        <CafeActionRow setAddpage={setAddpage} menuItems={MENU} />
 
         <div className="line" />
 
@@ -165,8 +172,12 @@ function Addpage() {
           </select>
         </div>
         <div className="add-page-action">
-          <button type="button" className="menu-button">추가하기</button>
-          <button type="button" className="menu-button">취소</button>
+          <button type="button" className="menu-button">
+            추가하기
+          </button>
+          <button type="button" className="menu-button">
+            취소
+          </button>
         </div>
       </form>
     </section>
@@ -176,7 +187,9 @@ function Addpage() {
 function AddInput({ id, label, value, placeholder, onChange }) {
   return (
     <div className="form-row">
-      <label className="form-label" htmlFor={id}>{label}</label>
+      <label className="form-label" htmlFor={id}>
+        {label}
+      </label>
       <input
         className="form-input"
         id={id}
@@ -191,23 +204,16 @@ function AddInput({ id, label, value, placeholder, onChange }) {
 }
 
 function MenuSection({ children }) {
-  return (
-    <div className="menu-section">
-      {children}
-    </div>
-  );
+  return <div className="menu-section">{children}</div>;
 }
 
 function CafeActionRow({ setAddpage, menuItems }) {
-
   return (
     <div className="button-row">
       <button className="menu-button" onClick={() => setAddpage(true)}>
         카페 메뉴 추가
       </button>
-      <button className="menu-button">
-        카페 메뉴 삭제
-      </button>
+      <button className="menu-button">카페 메뉴 삭제</button>
       <p className="count-text">총 {menuItems.length}개</p>
     </div>
   );
@@ -300,10 +306,12 @@ function CafeMenuSection({ items }) {
 
 function MenuCard({ item }) {
   return (
-    <article className={`menu-card${item.name === "아메리카노" ? " is-main" : ""}`}>
+    <article
+      className={`menu-card${item.name === "아메리카노" ? " is-main" : ""}`}
+    >
       <figure className="menu-image">
         <span className="menu-part">{item.part}</span>
-        <img  alt="" />
+        <img src={item.imgSrc} alt={item.name} />
       </figure>
       <section className="menu-info">
         <h2 className="menu-name">{item.name}</h2>
@@ -332,7 +340,10 @@ function CafeAboutSection({ items }) {
 }
 
 function MenuAboutCard({ item }) {
-  item.resource = item.resource.split(",").map((s) => s.trim()).join(", ");
+  item.resource = item.resource
+    .split(",")
+    .map((s) => s.trim())
+    .join(", ");
   return (
     <section className="menu-about-card">
       <header className="menu-about-header">
@@ -357,9 +368,9 @@ function MenuAboutCard({ item }) {
 
 export default function App() {
   fetch("https://randomuser.me/api/?results=10&nat=us,gb,ca,au,nz")
-  .then((res) => res.json())
-  .then((data) => {
-    console.log("랜덤 유저 데이터:", data.results);
-  });
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("랜덤 유저 데이터:", data.results);
+    });
   return <CafeMenuPage />;
 }
