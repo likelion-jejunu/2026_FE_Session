@@ -2,28 +2,24 @@ function CafeFilterPanel({
   part,
   sortBy,
   searchText,
-  onPartChange,
-  onSortByChange,
-  onSearchTextChange,
 }) {
   return (
     <div className="search-bar">
-      <PartFilterSelect value={part} onChange={onPartChange} />
-      <SortSelect value={sortBy} onChange={onSortByChange} />
-      <SearchInput value={searchText} onChange={onSearchTextChange} />
+      <PartFilterSelect value={part} />
+      <SortSelect value={sortBy} />
+      <SearchInput value={searchText} />
     </div>
   );
 }
 export default CafeFilterPanel;
 
-function PartFilterSelect({ value, onChange }) {
+function PartFilterSelect({ value }) {
   return (
     <>
       <p className="control-label">파트</p>
       <select
         className="select-box"
         value={value}
-        onChange={(e) => onChange(e.target.value)}
       >
         <option value="전체">전체</option>
         <option value="커피">커피</option>
@@ -35,14 +31,13 @@ function PartFilterSelect({ value, onChange }) {
   );
 }
 
-function SortSelect({ value, onChange }) {
+function SortSelect({ value }) {
   return (
     <>
       <p className="control-label">정렬</p>
       <select
         className="select-box"
         value={value}
-        onChange={(e) => onChange(e.target.value)}
       >
         <option value="이름순">이름순</option>
         <option value="최신추가순">최신추가순</option>
@@ -51,7 +46,7 @@ function SortSelect({ value, onChange }) {
   );
 }
 
-function SearchInput({ value, onChange }) {
+function SearchInput({ value }) {
   return (
     <>
       <p className="control-label">검색</p>
@@ -60,7 +55,6 @@ function SearchInput({ value, onChange }) {
         type="text"
         placeholder="메뉴 검색"
         value={value}
-        onChange={(e) => onChange(e.target.value)}
       />
     </>
   );

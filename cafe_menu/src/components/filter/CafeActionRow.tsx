@@ -1,4 +1,4 @@
-function CafeActionRow({ setAddpage, menuItems }) {
+function CafeActionRow({ menuItems }) {
   return (
     <div className="button-row">
       <button className="menu-button" >
