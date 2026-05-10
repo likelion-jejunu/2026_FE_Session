@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 function NotFound() {
   const navigate = useNavigate();
+
   return (
     <section style={styles.wrap}>
       <span style={styles.badge}>path="*"</span>

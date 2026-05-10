@@ -1,10 +1,21 @@
 import { useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function Home() {
   const navigate = useNavigate();
+  const [count, setCount] = useState(0);
 
+  useEffect(() => {
+    console.log("홈이 렌더링됐어요.");
+    return () => {
+      console.log("홈이 사라져요.");
+    }
+  }, []);
+  
   return (
     <section style={styles.wrap}>
+        
       <span style={styles.badge}>path="/"</span>
       <h1 style={styles.title}>🏠 홈 페이지</h1>
       <p style={styles.sub}>
@@ -13,6 +24,7 @@ function Home() {
       <button style={styles.btn} onClick={() => navigate("/about")}>
         소개 페이지로 이동 →
       </button>
+      <Outlet />
     </section>
   );
 }

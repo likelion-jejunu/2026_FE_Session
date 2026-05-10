@@ -80,5 +80,7 @@ const styles = {
     color: "#0b0e11",
     background: "#FCD535",
     fontWeight: 600,
+    padding: "6px 12px",
+    borderRadius: "6px",
   },
 } as const;
