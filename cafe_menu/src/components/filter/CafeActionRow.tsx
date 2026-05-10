@@ -1,7 +1,7 @@
-function CafeActionRow({ menuItems }) {
+function CafeActionRow({ menuItems, setAddpage }) {
   return (
     <div className="button-row">
-      <button className="menu-button" >
+      <button className="menu-button" onClick={() => setAddpage(true)}>
         카페 메뉴 추가
       </button>
       <button className="menu-button">카페 메뉴 삭제</button>
